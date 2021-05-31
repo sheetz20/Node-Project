@@ -39,6 +39,7 @@ router.get('/tele-bill/reminder', (req, res) => {
     let todayDate = new Date()
     let beforeDate = new Date()
     let response = []
+    let data1 = []
     beforeDate.setDate(beforeDate.getDate() - 90)
     User.find({ "billPaid": { $gte: beforeDate, $lte: todayDate } }, (error, data) => {
         if (error) {
@@ -48,11 +49,11 @@ router.get('/tele-bill/reminder', (req, res) => {
                 return item.phoneNumber
 
             })))]
-            uniquePhoneNumbers.forEach((number) => {
-                let data1 = data.filter((item) => {
-                        return item.phoneNumber = number
-                    })
-                    // console.log(data1)
+            uniquePhoneNumbers.forEach((number, i) => {
+                data1 = data.filter((item) => {
+                    return item.phoneNumber == number
+                })
+                console.log(i, "-----------", data1)
                 let airtelCharges = totalCharges(data1, 'Airtel')
                 let vodafoneCharges = totalCharges(data1, 'Vodafone')
                 let total = airtelCharges + vodafoneCharges
@@ -63,7 +64,9 @@ router.get('/tele-bill/reminder', (req, res) => {
                     }
                 }
                 response.push(userData)
+
             })
+
             res.send(response)
         }
     })
