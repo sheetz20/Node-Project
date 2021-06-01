@@ -6,17 +6,18 @@ function billPerSim(totalInternetUsed, totalCallDuration, freeInternet, internet
         totalCharge = 0
     } else {
         totalCharge += (totalInternetUsed - freeInternet) * internetCharge
-        console.log("Total charge internet :", totalCharge);
+            // console.log("Total charge internet :", totalCharge);
     }
     if (totalCallDuration < freeCall) {
         totalCharge = 0
     } else {
         totalCharge += (totalCallDuration - freeCall) * CallCharge
-        console.log("Total charge call :", totalCharge);
+            // console.log("Total charge call :", totalCharge);
     }
     return totalCharge
 }
 const totalCharges = function(data) {
+    let totalCharge = 0
     let companyList = [...new Set((data.map((item) => {
         return item.company
 

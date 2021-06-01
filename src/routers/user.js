@@ -47,15 +47,15 @@ router.get('/tele-bill/reminder', (req, res) => {
             res.send(error)
         } else {
             let uniquePhoneNumbers = [...new Set((data.map((item) => {
-                return item.phoneNumber
+                    return item.phoneNumber
 
-            })))]
-            console.log("uniquePhoneNumbers", uniquePhoneNumbers)
+                })))]
+                // console.log("uniquePhoneNumbers", uniquePhoneNumbers)
             uniquePhoneNumbers.forEach((number, i) => {
                 data1 = data.filter((item) => {
-                    return item.phoneNumber == number
-                })
-                console.log("data1", i, "------", data1)
+                        return item.phoneNumber == number
+                    })
+                    // console.log("data1", i, "------", data1)
 
                 let airtelCharges = totalCharges(data1)
                 let total = airtelCharges
