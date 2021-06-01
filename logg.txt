@@ -60,7 +60,3 @@ Total charge internet : 762
 Total charge call : 882
 Total charge internet : 1050
 Total charge call : 1060
-Total charge internet : 1050
-Total charge call : 1060
-Total charge internet : 762
-Total charge call : 882
