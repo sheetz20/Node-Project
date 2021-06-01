@@ -23,9 +23,34 @@ data = [{
     }
 ]
 
+data1 = [{
+        phoneNumber: 8888888888,
+        company: "Airtel",
+        internetUsed: "1024mb",
+        callDuration: "1hr",
+        billPaid: "2021-05-31"
+    },
+    {
+        phoneNumber: 8888888888,
+        company: "Airtel",
+        internetUsed: "1000mb",
+        callDuration: "1.5hr",
+        billPaid: "2021-05-31"
+    },
+    {
+        phoneNumber: 8888888888,
+        company: "Vodafone",
+        internetUsed: "1000mb",
+        callDuration: "1hr",
+        billPaid: "2021-05-31"
+    }
+]
 describe("totalCharges", () => {
     it("totalCharges", () => {
         expect(totalCharges(data)).to.equal(648)
+    })
+    it("totalCharges", () => {
+        expect(totalCharges(data1)).to.equal(1060)
     })
     it("User Data", () => {
         const users = sinon.mongo.collection();
