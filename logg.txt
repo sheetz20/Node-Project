@@ -1,0 +1,62 @@
+app is running on 3000
+uniquePhoneNumbers [ 1234467889, 8888888888 ]
+data1 0 ------ [
+  {
+    _id: 60b4a47ca77ee112189f5ad1,
+    name: 'Lili',
+    phoneNumber: 1234467889,
+    company: 'Airtel',
+    internetUsed: '500mb',
+    callDuration: '1.4h',
+    billPaid: 2021-05-31T08:55:24.788Z,
+    __v: 0
+  },
+  {
+    _id: 60b4a508a77ee112189f5ad2,
+    name: 'Lili',
+    phoneNumber: 1234467889,
+    company: 'Airtel',
+    internetUsed: '1020mb',
+    callDuration: '1.4h',
+    billPaid: 2021-05-31T08:57:44.441Z,
+    __v: 0
+  }
+]
+Total charge internet : 510
+Total charge call : 648
+data1 1 ------ [
+  {
+    _id: 60b4a620a77ee112189f5ad3,
+    name: 'Ross',
+    phoneNumber: 8888888888,
+    company: 'Airtel',
+    internetUsed: '1024mb',
+    callDuration: '1h',
+    billPaid: 2021-05-31T09:02:24.052Z,
+    __v: 0
+  },
+  {
+    _id: 60b4a638a77ee112189f5ad4,
+    name: 'Ross',
+    phoneNumber: 8888888888,
+    company: 'Airtel',
+    internetUsed: '1000mb',
+    callDuration: '1.5h',
+    billPaid: 2021-05-31T09:02:48.977Z,
+    __v: 0
+  },
+  {
+    _id: 60b4b367205e440bc4d45df6,
+    name: 'Ross',
+    phoneNumber: 8888888888,
+    company: 'Vodafone',
+    internetUsed: '1000mb',
+    callDuration: '1h',
+    billPaid: 2021-05-31T09:59:03.146Z,
+    __v: 0
+  }
+]
+Total charge internet : 762
+Total charge call : 882
+Total charge internet : 1050
+Total charge call : 1060

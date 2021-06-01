@@ -1,35 +1,41 @@
-const totalCharges = function(data, company) {
-    let totalCallDuration = 0
-    let totalInternetUsed = 0
-    let totalCharge = 0
-    for (var i = 0; i < data.length; i++) {
-        totalInternetUsed += parseFloat(data[i].internetUsed)
-        totalCallDuration += parseFloat(data[i].callDuration)
-    }
-    totalCallDuration = totalCallDuration * 60
-    if (company === "Airtel") {
-        if (totalInternetUsed < 500) {
-            totalCharge = 0
-        } else {
-            totalCharge += (totalInternetUsed - 500) * 0.5
-        }
-        if (totalCallDuration < 30) {
-            totalCharge = 0
-        } else {
-            totalCharge += (totalCallDuration - 30) * 1
-        }
+function billPerSim(totalInternetUsed, totalCallDuration, freeInternet, internetCharge, freeCall, CallCharge) {
+    let totalCharge = 0;
+    if (totalInternetUsed < freeInternet) {
+        totalCharge = 0
     } else {
-        if (totalInternetUsed < 300) {
-            totalCharge = 0
-        } else {
-            totalCharge += (totalInternetUsed - 300) * 0.8
-        }
-        if (totalCallDuration < 60) {
-            totalCharge = 0
-        } else {
-            totalCharge += (totalCallDuration - 60) * 2
-        }
+        totalCharge += (totalInternetUsed - freeInternet) * internetCharge
+        console.log("Total charge internet :", totalCharge);
     }
+    if (totalCallDuration < freeCall) {
+        totalCharge = 0
+    } else {
+        totalCharge += (totalCallDuration - freeCall) * CallCharge
+        console.log("Total charge call :", totalCharge);
+    }
+    return totalCharge
+}
+const totalCharges = function(data) {
+    let companyList = [...new Set((data.map((item) => {
+        return item.company
+
+    })))]
+    companyList.forEach(sim => {
+        let totalCallDuration = 0
+        let totalInternetUsed = 0
+
+        data.forEach(element => {
+            if (element.company === sim) {
+                totalInternetUsed += parseFloat(element.internetUsed)
+                totalCallDuration += parseFloat(element.callDuration)
+            }
+        });
+        totalCallDuration = totalCallDuration * 60
+        if (sim === "Airtel") {
+            totalCharge = billPerSim(totalInternetUsed, totalCallDuration, 500, 0.5, 30, 1);
+        } else if (sim === "Vodafone") {
+            totalCharge = billPerSim(totalInternetUsed, totalCallDuration, 300, 1.5, 40, 0.5);
+        }
+    });
     return totalCharge
 }
 
