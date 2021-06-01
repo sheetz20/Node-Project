@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 function billPerSim(totalInternetUsed, totalCallDuration, freeInternet, internetCharge, freeCall, CallCharge) {
     let totalCharge = 0;
     if (totalInternetUsed < freeInternet) {
@@ -31,9 +33,9 @@ const totalCharges = function(data) {
         });
         totalCallDuration = totalCallDuration * 60
         if (sim === "Airtel") {
-            totalCharge = billPerSim(totalInternetUsed, totalCallDuration, 500, 0.5, 30, 1);
+            totalCharge = billPerSim(totalInternetUsed, totalCallDuration, process.env.freeInternetAirtel, process.env.internetChargeAirtel, process.env.freeCallAirtel, process.env.callChargeAirtel);
         } else if (sim === "Vodafone") {
-            totalCharge = billPerSim(totalInternetUsed, totalCallDuration, 300, 1.5, 40, 0.5);
+            totalCharge = billPerSim(totalInternetUsed, totalCallDuration, process.env.freeInternetVodafone, process.env.internetChargeVodafone, process.env.freeCallVodafone, process.env.callChargeVodafone);
         }
     });
     return totalCharge
