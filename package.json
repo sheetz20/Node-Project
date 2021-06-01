@@ -5,8 +5,10 @@
     "main": "app.js",
     "scripts": {
         "start": "node src/app.js",
-        "test": "mocha"
+        "test": "mocha",
+        "coverage": "nyc --reporter=lcov --report-dir ./.coverage/ npm run test"
     },
+
     "keywords": [],
     "author": "sheetal",
     "license": "ISC",
@@ -16,6 +18,7 @@
         "jest": "^27.0.3",
         "mongodb": "^3.6.8",
         "mongoose": "^5.12.10",
+        "nyc": "^15.1.0",
         "sinon": "^11.1.1",
         "sinon-mongo": "^1.1.0"
     },

@@ -43,16 +43,4 @@ describe("totalCharges", () => {
             })
             .expect(200)
     })
-    it("User Data", () => {
-        request(app)
-            .post('/tele-bill/myBill')
-            .send({
-                "name": "Ross",
-                "phoneNumber": 8888888888,
-                "company": "Vodafone",
-                "internetUsed": "1100mb",
-                "callDuration": "1h"
-            })
-            .expect(200)
-    })
 })
